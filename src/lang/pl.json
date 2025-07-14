@@ -1,0 +1,36 @@
+{
+    "ui": {
+        "language": {
+            "label": "Język"
+        },
+        "theme": {
+            "label": "Motyw",
+            "light": "Jasny",
+            "dark": "Ciemny",
+            "system": "Systemowy"
+        },
+        "breadcrumb": {
+            "home": "Dokumentacja",
+            "current": "Witaj"
+        },
+        "loading": "Ładowanie...",
+        "error": "Błąd podczas ładowania treści",
+        "welcome": {
+            "title": "Witaj w EasyDocs",
+            "subtitle": "Nowoczesna, szybka i piękna platforma dokumentacyjna zbudowana z React, TypeScript i shadcn/ui. Strona jest obecnie w trakcie prac."
+        }
+    },
+    "sidebar": {
+        "title": "Dokumentacja",
+        "sections": {
+            "getting_started": {
+                "title": "Rozpoczęcie pracy",
+                "items": {
+                    "installation": "Instalacja",
+                    "quick_start": "Szybki start",
+                    "configuration": "Konfiguracja"
+                }
+            }
+        }
+    }
+}

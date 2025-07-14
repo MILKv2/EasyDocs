@@ -94,20 +94,6 @@ For production deployments, configure your environment variables and secrets usi
 - `npm run deploy` - Build and deploy to Cloudflare Pages
 - `npm run lint` - Run ESLint
 
-## Project Structure
-
-```
-easydocs/
-├── public/          # Static assets
-├── src/
-│   ├── assets/      # Images, fonts, etc.
-│   ├── App.tsx      # Main app component
-│   ├── main.tsx     # App entry point
-│   └── index.css    # Global styles
-├── wrangler.jsonc   # Cloudflare configuration
-└── package.json     # Dependencies and scripts
-```
-
 ## Contributing
 
 1. Fork the repository

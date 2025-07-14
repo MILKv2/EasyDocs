@@ -1,69 +1,129 @@
-# React + TypeScript + Vite
+# THIS PROJECT IS UNDER DEVELOPMENT
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# EasyDocs
 
-Currently, two official plugins are available:
+A modern documentation platform built with React, TypeScript, Vite and Shadcn deployed on Cloudflare Pages.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- ⚡ Fast development with Vite and Hot Module Replacement (HMR)
+- 🎯 Type-safe development with TypeScript
+- ⚛️ React 19 with modern hooks and components
+- 🚀 Deployed on Cloudflare Pages for global performance
+- 📱 Responsive design for all devices
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Frontend**: React 19, TypeScript, Vite
+- **Deployment**: Cloudflare Pages
+- **Development**: ESLint, Hot Module Replacement
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+- Node.js 18+ and npm
+- A Cloudflare account (for deployment)
+
+### Local Development
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/MILKv2/easydocs
+   cd easydocs
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+### Building for Production
+
+```bash
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+This creates an optimized build in the `dist/` directory.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Deployment
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Cloudflare Pages Setup
+
+1. **Install Wrangler CLI** (if not already installed)
+   ```bash
+   npm install -g wrangler
+   ```
+
+2. **Authenticate with Cloudflare**
+   ```bash
+   wrangler login
+   ```
+
+3. **Deploy to Cloudflare Pages**
+   ```bash
+   npm run deploy
+   ```
+
+### Environment Configuration
+
+For production deployments, configure your environment variables and secrets using Cloudflare's secure methods:
+
+1. **Using Wrangler for secrets**:
+   ```bash
+   wrangler pages secret put SECRET_NAME
+   ```
+
+2. **Using the Cloudflare Dashboard**:
+   - Go to your Pages project
+   - Navigate to Settings → Environment variables
+   - Add your production variables
+
+⚠️ **Security Note**: Never commit sensitive data like API keys, tokens, or passwords to version control. Use Cloudflare's built-in secrets management.
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+- `npm run deploy` - Build and deploy to Cloudflare Pages
+- `npm run lint` - Run ESLint
+
+## Project Structure
+
 ```
+easydocs/
+├── public/          # Static assets
+├── src/
+│   ├── assets/      # Images, fonts, etc.
+│   ├── App.tsx      # Main app component
+│   ├── main.tsx     # App entry point
+│   └── index.css    # Global styles
+├── wrangler.jsonc   # Cloudflare configuration
+└── package.json     # Dependencies and scripts
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## Security
+
+This project follows security best practices:
+- No hardcoded secrets or API keys
+- Environment variables managed through Cloudflare
+- Dependencies regularly updated
+- Secure deployment pipeline
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

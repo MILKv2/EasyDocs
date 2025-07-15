@@ -14,63 +14,15 @@ type LanguageCode = typeof AVAILABLE_LANGUAGES[number]['code']
 
 interface LanguageData {
     ui: {
-        language: {
-            label: string
-        }
-        theme: {
-            label: string
-            light: string
-            dark: string
-            system: string
-        }
-        breadcrumb: {
-            home: string
-            current: string
-        }
-        loading: string
-        error: string
-        welcome: {
-            title: string
-            subtitle: string
-            features: {
-                fast: string
-                multilingual: string
-                customizable: string
-            }
-            cards: {
-                [key: string]: {
-                    title: string
-                    description: string
-                    button: string
-                }
-            }
-            quick_actions: {
-                title: string
-                description: string
-                buttons: {
-                    [key: string]: string
-                }
-            }
-        }
+        [key: string]: any
     }
     sidebar: {
-        title: string
-        sections: {
-            [key: string]: {
-                title: string
-                items: {
-                    [key: string]: string
-                }
-            }
-        }
+        [key: string]: any
     }
     content: {
-        [key: string]: {
-            title: string
-            description: string
-            content: string
-        }
+        [key: string]: any
     }
+    [key: string]: any
 }
 
 interface LanguageInfo {

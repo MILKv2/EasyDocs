@@ -3,6 +3,8 @@ import { ModeToggle } from "@/components/mode-toggle"
 import { useLanguage } from "@/hooks/useLanguage"
 import { useState, useEffect } from "react"
 import { Skeleton } from "@/components/ui/skeleton"
+import { ContentRenderer } from "@/components/content-renderer"
+import { Landing } from "@/components/docs/landing"
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -21,19 +23,26 @@ import {
 export default function Page() {
     const { languageData } = useLanguage()
     const [currentPage, setCurrentPage] = useState("Welcome")
+    const [currentContentKey, setCurrentContentKey] = useState<string | null>(null)
 
     useEffect(() => {
         const updateCurrentPage = () => {
             const hash = window.location.hash.replace('#', '')
-            if (hash && languageData) {
+            if (hash && languageData && languageData.sidebar && languageData.sidebar.sections) {
                 for (const section of Object.values(languageData.sidebar.sections)) {
-                    if (section.items && section.items[hash]) {
-                        setCurrentPage(section.items[hash])
-                        return
+                    if (section && typeof section === 'object' && 'items' in section) {
+                        const sectionWithItems = section as { items: { [key: string]: string } }
+                        if (sectionWithItems.items && sectionWithItems.items[hash]) {
+                            setCurrentPage(sectionWithItems.items[hash])
+                            setCurrentContentKey(hash)
+                            return
+                        }
                     }
                 }
             }
+            // If no hash or content found, show welcome page
             setCurrentPage(languageData?.ui?.breadcrumb?.current || "Welcome")
+            setCurrentContentKey(null)
         }
 
         updateCurrentPage()
@@ -44,17 +53,25 @@ export default function Page() {
         }
     }, [languageData])
 
+    const renderMainContent = () => {
+        if (currentContentKey) {
+            return <ContentRenderer contentKey={currentContentKey} languageData={languageData} />
+        } else {
+            return <Landing />
+        }
+    }
+
     return (
         <SidebarProvider>
             <AppSidebar />
             <SidebarInset>
-                <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
-                    <SidebarTrigger className="-ml-1" />
+                <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4 overflow-hidden">
+                    <SidebarTrigger className="-ml-1 cursor-pointer" />
                     <Separator
                         orientation="vertical"
                         className="mr-2 data-[orientation=vertical]:h-4"
                     />
-                    <Breadcrumb>
+                    <Breadcrumb className="flex-1 min-w-0">
                         <BreadcrumbList>
                             <BreadcrumbItem className="hidden md:block">
                                 <BreadcrumbLink href="#">
@@ -63,27 +80,18 @@ export default function Page() {
                             </BreadcrumbItem>
                             <BreadcrumbSeparator className="hidden md:block" />
                             <BreadcrumbItem>
-                                <BreadcrumbPage>
+                                <BreadcrumbPage className="truncate">
                                     {currentPage}
                                 </BreadcrumbPage>
                             </BreadcrumbItem>
                         </BreadcrumbList>
                     </Breadcrumb>
-                    <div className="ml-auto">
+                    <div className="flex items-center gap-2 flex-shrink-0">
                         <ModeToggle />
                     </div>
                 </header>
-                <div className="flex flex-1 flex-col gap-6 p-6">
-                    <div className="text-center space-y-4">
-                        <div className="space-y-2">
-                            <h1 className="text-4xl font-bold tracking-tight">
-                                {languageData?.ui?.welcome?.title || <Skeleton className="h-10 w-80 mx-auto" />}
-                            </h1>
-                            <div className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                                {languageData?.ui?.welcome?.subtitle || <Skeleton className="h-6 w-96 mx-auto" />}
-                            </div>
-                        </div>
-                    </div>
+                <div className="flex flex-1 flex-col gap-4 sm:gap-6 p-4 sm:p-6 overflow-x-hidden">
+                    {renderMainContent()}
                 </div>
             </SidebarInset>
         </SidebarProvider>

@@ -1,4 +1,22 @@
 {
+    "_comments": {
+        "formatting_guide": "Supported text formatting options:",
+        "headings": "# H1, ## H2, ### H3, #### H4",
+        "bold": "**bold text**",
+        "italic": "*italic text*",
+        "underline": "__underlined text__",
+        "strikethrough": "~~strikethrough text~~",
+        "inline_code": "`inline code`",
+        "code_blocks": "```language\\ncode here\\n```",
+        "blockquotes": "> quoted text",
+        "lists": "- bullet point, 1. numbered list",
+        "checkboxes": "- [ ] unchecked, - [x] checked",
+        "links": "[link text](https://url.com)",
+        "horizontal_rule": "---",
+        "alerts": ":::info, :::warning, :::danger, :::success",
+        "tables": "| Column 1 | Column 2 |",
+        "combining": "You can combine formatting: **bold *italic* text**"
+    },
     "ui": {
         "language": {
             "label": "Language"
@@ -18,6 +36,14 @@
         "welcome": {
             "title": "Welcome to EasyDocs",
             "subtitle": "A modern, fast, and beautiful documentation platform built with React, TypeScript, and shadcn/ui. Page is under development right now."
+        },
+        "navbar": {
+            "home": "Home",
+            "github": "Github",
+            "components": "Components",
+            "title": "Navigation",
+            "description": "Quick links",
+            "close": "Close"
         }
     },
     "sidebar": {
@@ -31,6 +57,28 @@
                     "configuration": "Configuration"
                 }
             }
+        }
+    },
+    "content": {
+        "welcome": {
+            "title": "Welcome to EasyDocs",
+            "description": "A modern, fast, and beautiful documentation platform built with React 19, TypeScript, Vite, and shadcn/ui components. Create stunning documentation with advanced formatting, copy buttons, mobile-first design, and deploy globally with Cloudflare Pages.",
+            "content": ""
+        },
+        "quick_start": {
+            "title": "Quick Start Guide",
+            "description": "Get up and running with EasyDocs in minutes. Learn how to install, configure, and start creating beautiful documentation with advanced formatting.",
+            "content": ""
+        },
+        "configuration": {
+            "title": "Configuration Guide",
+            "description": "Learn how to configure EasyDocs, customize language files, add new pages, and set up advanced features for your documentation platform.",
+            "content": "## ⚙️ Configuration Overview\n\nEasyDocs is designed to be highly configurable through JSON-based language files. This approach allows for easy content management, multi-language support, and dynamic page generation.\n\n---\n\n"
+        },
+        "installation": {
+            "title": "Installation Guide",
+            "description": "Complete installation and setup guide for EasyDocs with all dependencies and requirements",
+            "content": "## 📦 Installation Guide\n\nGet EasyDocs installed and running on your system with this comprehensive guide.\n\n---\n\n"
         }
     }
 }

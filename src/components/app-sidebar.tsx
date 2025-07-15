@@ -15,15 +15,17 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
     SidebarRail,
+    useSidebar,
 } from "@/components/ui/sidebar"
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+    const { isMobile, setOpenMobile } = useSidebar();
     const { languageData, isLoading, error } = useLanguage()
 
     if (isLoading) {
         return (
             <Sidebar {...props}>
-                <SidebarHeader>
+                <SidebarHeader className="cursor-pointer">
                     <LanguageSwitcher />
                 </SidebarHeader>
                 <SidebarContent>
@@ -82,22 +84,35 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <LanguageSwitcher />
             </SidebarHeader>
             <SidebarContent>
-                {Object.entries(languageData.sidebar.sections).map(([sectionKey, section]) => (
-                    <SidebarGroup key={sectionKey}>
-                        <SidebarGroupLabel>{section.title}</SidebarGroupLabel>
-                        <SidebarGroupContent>
-                            <SidebarMenu>
-                                {Object.entries(section.items).map(([itemKey, itemTitle]) => (
-                                    <SidebarMenuItem key={itemKey}>
-                                        <SidebarMenuButton asChild>
-                                            <a href={`#${itemKey}`}>{itemTitle}</a>
-                                        </SidebarMenuButton>
-                                    </SidebarMenuItem>
-                                ))}
-                            </SidebarMenu>
-                        </SidebarGroupContent>
-                    </SidebarGroup>
-                ))}
+                {languageData.sidebar && languageData.sidebar.sections && Object.entries(languageData.sidebar.sections).map(([sectionKey, section]) => {
+                    if (section && typeof section === 'object' && 'title' in section && 'items' in section) {
+                        const sectionWithData = section as { title: string; items: { [key: string]: string } }
+                        return (
+                            <SidebarGroup key={sectionKey}>
+                                <SidebarGroupLabel>{sectionWithData.title}</SidebarGroupLabel>
+                                <SidebarGroupContent>
+                                    <SidebarMenu>
+                                        {sectionWithData.items && Object.entries(sectionWithData.items).map(([itemKey, itemTitle]) => (
+                                        <SidebarMenuItem key={itemKey}>
+                                            <SidebarMenuButton asChild>
+                                                <a
+                                                    href={`#${itemKey}`}
+                                                    onClick={() => {
+                                                        if (isMobile) setOpenMobile(false);
+                                                    }}
+                                                >
+                                                    {itemTitle}
+                                                </a>
+                                            </SidebarMenuButton>
+                                        </SidebarMenuItem>
+                                        ))}
+                                    </SidebarMenu>
+                                </SidebarGroupContent>
+                            </SidebarGroup>
+                        )
+                    }
+                    return null
+                })}
             </SidebarContent>
             <SidebarFooter>
                 <p className="text-xs text-muted-foreground text-center">

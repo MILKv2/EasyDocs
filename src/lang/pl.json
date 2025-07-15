@@ -1,4 +1,22 @@
 {
+    "_comments": {
+        "formatting_guide": "Obsługiwane opcje formatowania tekstu:",
+        "headings": "# H1, ## H2, ### H3, #### H4",
+        "bold": "**pogrubiony tekst**",
+        "italic": "*tekst pochylony*",
+        "underline": "__podkreślony tekst__",
+        "strikethrough": "~~przekreślony tekst~~",
+        "inline_code": "`kod wewnątrz tekstu`",
+        "code_blocks": "```język\\nkod tutaj\\n```",
+        "blockquotes": "> cytowany tekst",
+        "lists": "- punkt listy, 1. lista numerowana",
+        "checkboxes": "- [ ] niezaznaczone, - [x] zaznaczone",
+        "links": "[tekst linku](https://url.com)",
+        "horizontal_rule": "---",
+        "alerts": ":::info, :::warning, :::danger, :::success",
+        "tables": "| Kolumna 1 | Kolumna 2 |",
+        "combining": "Możesz łączyć formatowanie: **pogrubiony *pochylony* tekst**"
+    },
     "ui": {
         "language": {
             "label": "Język"
@@ -18,6 +36,14 @@
         "welcome": {
             "title": "Witaj w EasyDocs",
             "subtitle": "Nowoczesna, szybka i piękna platforma dokumentacyjna zbudowana z React, TypeScript i shadcn/ui. Strona jest obecnie w trakcie prac."
+        },
+        "navbar": {
+            "home": "Strona główna",
+            "github": "Github",
+            "components": "Komponenty",
+            "title": "Nawigacja",
+            "description": "szybkie linki",
+            "close": "Zamknij"
         }
     },
     "sidebar": {
@@ -31,6 +57,28 @@
                     "configuration": "Konfiguracja"
                 }
             }
+        }
+    },
+    "content": {
+        "welcome": {
+            "title": "Witaj w EasyDocs",
+            "description": "Nowoczesna, szybka i piękna platforma dokumentacyjna zbudowana z React 19, TypeScript, Vite i komponentami shadcn/ui. Twórz wspaniałą dokumentację z zaawansowanym formatowaniem, przyciskami kopiowania, designem mobile-first i wdróż globalnie z Cloudflare Pages.",
+            "content": ""
+        },
+        "quick_start": {
+            "title": "Przewodnik Szybkiego Startu",
+            "description": "Zacznij pracę z EasyDocs w kilka minut. Dowiedz się, jak zainstalować, skonfigurować i zacząć tworzyć piękną dokumentację z zaawansowanym formatowaniem.",
+            "content": ""
+        },
+        "configuration": {
+            "title": "Przewodnik Konfiguracji",
+            "description": "Dowiedz się, jak skonfigurować EasyDocs, dostosować pliki językowe, dodać nowe strony i skonfigurować zaawansowane funkcje dla swojej platformy dokumentacyjnej.",
+            "content": "## ⚙️ Przegląd Konfiguracji\n\nEasyDocs zostało zaprojektowane jako wysoce konfigurowalne poprzez pliki językowe oparte na JSON. To podejście umożliwia łatwe zarządzanie treścią, obsługę wielu języków i dynamiczne generowanie stron.\n\n---\n\n"
+        },
+        "installation": {
+            "title": "Przewodnik Instalacji",
+            "description": "Kompletny przewodnik instalacji i konfiguracji EasyDocs ze wszystkimi zależnościami i wymaganiami",
+            "content": "## 📦 Przewodnik Instalacji\n\nZainstaluj i uruchom EasyDocs w swoim systemie dzięki temu kompletnemu przewodnikowi.\n\n---\n\n"
         }
     }
 }

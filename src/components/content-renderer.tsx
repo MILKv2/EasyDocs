@@ -69,7 +69,19 @@ function CodeBlock({ code, language }: CodeBlockProps) {
 }
 
 export function ContentRenderer({ contentKey, languageData }: ContentRendererProps) {
-    const content = languageData?.content?.[contentKey]
+    let content = null;
+        if (languageData?.content) {
+            for (const headingKey of Object.keys(languageData.content)) {
+                const heading = languageData.content[headingKey];
+                if (heading && typeof heading === 'object' && 'pages' in heading) {
+                    const pages = heading.pages as Record<string, any>;
+                    if (pages && contentKey in pages) {
+                        content = pages[contentKey];
+                        break;
+                    }
+                }
+            }
+    }
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' })

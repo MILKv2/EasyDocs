@@ -1,84 +1,99 @@
 {
     "_comments": {
-        "formatting_guide": "Obsługiwane opcje formatowania tekstu:",
+        "formatting_guide": "Supported text formatting options:",
         "headings": "# H1, ## H2, ### H3, #### H4",
-        "bold": "**pogrubiony tekst**",
-        "italic": "*tekst pochylony*",
-        "underline": "__podkreślony tekst__",
-        "strikethrough": "~~przekreślony tekst~~",
-        "inline_code": "`kod wewnątrz tekstu`",
-        "code_blocks": "```język\\nkod tutaj\\n```",
-        "blockquotes": "> cytowany tekst",
-        "lists": "- punkt listy, 1. lista numerowana",
-        "checkboxes": "- [ ] niezaznaczone, - [x] zaznaczone",
-        "links": "[tekst linku](https://url.com)",
+        "bold": "**bold text**",
+        "italic": "*italic text*",
+        "underline": "__underlined text__",
+        "strikethrough": "~~strikethrough text~~",
+        "inline_code": "`inline code`",
+        "code_blocks": "```language\\ncode here\\n```",
+        "blockquotes": "> quoted text",
+        "lists": "- bullet point, 1. numbered list",
+        "checkboxes": "- [ ] unchecked, - [x] checked",
+        "links": "[link text](https://url.com)",
         "horizontal_rule": "---",
         "alerts": ":::info, :::warning, :::danger, :::success",
-        "tables": "| Kolumna 1 | Kolumna 2 |",
-        "combining": "Możesz łączyć formatowanie: **pogrubiony *pochylony* tekst**"
+        "tables": "| Column 1 | Column 2 |",
+        "combining": "You can combine formatting: **bold *italic* text**"
     },
     "ui": {
         "language": {
-            "label": "Język"
+            "label": "Language"
         },
         "theme": {
-            "label": "Motyw",
-            "light": "Jasny",
-            "dark": "Ciemny",
-            "system": "Systemowy"
+            "label": "Theme",
+            "light": "Light",
+            "dark": "Dark",
+            "system": "System"
         },
         "breadcrumb": {
-            "home": "Dokumentacja",
-            "current": "Witaj"
+            "home": "Documentation",
+            "current": "Welcome"
         },
-        "loading": "Ładowanie...",
-        "error": "Błąd podczas ładowania treści",
+        "loading": "Loading...",
+        "error": "Error loading content",
         "welcome": {
-            "title": "Witaj w EasyDocs",
-            "subtitle": "Nowoczesna, szybka i piękna platforma dokumentacyjna zbudowana z React, TypeScript i shadcn/ui. Strona jest obecnie w trakcie prac."
+            "title": "Welcome to EasyDocs",
+            "subtitle": "A modern, fast, and beautiful documentation platform built with React, TypeScript, and shadcn/ui. Page is under development right now."
         },
         "navbar": {
-            "home": "Strona główna",
+            "home": "Home",
             "github": "Github",
-            "components": "Komponenty",
-            "title": "Nawigacja",
-            "description": "szybkie linki",
-            "close": "Zamknij"
+            "components": "Components",
+            "title": "Navigation",
+            "description": "Quick links",
+            "close": "Close"
         }
     },
     "sidebar": {
-        "title": "Dokumentacja",
+        "title": "Documentation",
         "sections": {
             "getting_started": {
-                "title": "Rozpoczęcie pracy",
+                "title": "Getting Started",
                 "items": {
-                    "installation": "Instalacja",
-                    "quick_start": "Szybki start",
-                    "configuration": "Konfiguracja"
+                    "installation": "Installation",
+                    "quick_start": "Quick Start",
+                    "configuration": "Configuration"
                 }
             }
         }
     },
     "content": {
         "welcome": {
-            "title": "Witaj w EasyDocs",
-            "description": "Nowoczesna, szybka i piękna platforma dokumentacyjna zbudowana z React 19, TypeScript, Vite i komponentami shadcn/ui. Twórz wspaniałą dokumentację z zaawansowanym formatowaniem, przyciskami kopiowania, designem mobile-first i wdróż globalnie z Cloudflare Pages.",
-            "content": ""
+            "title": "Welcome to EasyDocs",
+            "description": "A modern, fast, and beautiful documentation platform built with React 19, TypeScript, Vite, and shadcn/ui components. Create stunning documentation with advanced formatting, copy buttons, mobile-first design, and deploy globally with Cloudflare Pages.",
+            "content": "# Welcome to EasyDocs\n\nEasyDocs helps you create beautiful, interactive documentation using simple markdown-like formatting.\n\n---\n\n## What can you do?\n\n- Format text with headings, bold, italic, underline, and strikethrough\n- Add code blocks, inline code, and blockquotes\n- Create lists, checkboxes, links, and tables\n- Show alerts for info, warning, danger, and success\n- Use modules to organize your docs into pages and sections\n\n## Formatting Examples\n\n**Headings:**\n# H1\n## H2\n### H3\n#### H4\n\n**Text:**\n**bold**\n*italic*\n__underline__\n~~strikethrough~~\n\n**Code:**\n`inline code`\n```js\nconsole.log('code block')\n```\n\n**Blockquote:**\n> This is a quote\n\n**Lists:**\n- Bullet item\n1. Numbered item\n\n**Checkboxes:**\n- [ ] To do\n- [x] Done\n\n**Links:**\n[Visit EasyDocs GitHub](https://github.com/MILKv2/easydocs)\n\n**Horizontal rule:**\n---\n\n**Alerts:**\n:::info This is an info alert\n:::warning This is a warning alert\n:::danger This is a danger alert\n:::success This is a success alert\n\n**Tables:**\n| Name     | Value   |\n|---------|--------|\n| Example | 123    |\n\nYou can combine formatting: **bold *italic* text**\n\n---\n\n## How to use modules\n\n- Each page or section is a module defined in your language JSON file.\n- Add new modules by creating new keys under `content` (e.g. \"my_page\": {...})\n- Each module can have a title, description, and content.\n- Use formatting and elements above in any module's content.\n\nExample:\n```json\n{\n  \"my_page\": {\n    \"title\": \"My Page\",\n    \"description\": \"This is a custom page.\",\n    \"content\": \"# My Page\\nSome text here.\"\n  }\n}\n```\n\n---\n\nFor more details, see the README or explore the sidebar!\n"
         },
-        "quick_start": {
-            "title": "Przewodnik Szybkiego Startu",
-            "description": "Zacznij pracę z EasyDocs w kilka minut. Dowiedz się, jak zainstalować, skonfigurować i zacząć tworzyć piękną dokumentację z zaawansowanym formatowaniem.",
-            "content": ""
+        "getting_started": {
+            "title": "Getting Started",
+            "pages": {
+                "1": {
+                    "title": "Quick Start",
+                    "description": "Get up and running with EasyDocs in minutes. Learn how to install, configure, and start creating beautiful documentation with advanced formatting.",
+                    "content": ""
+                },
+                "2": {
+                    "title": "Configuration",
+                    "description": "Learn how to configure EasyDocs, customize language files, add new pages, and set up advanced features for your documentation platform.",
+                    "content": "## ⚙️ Configuration Guide\n\nEasyDocs uses JSON files for configuration and content. You can customize pages, sections, and formatting easily.\n\n---\n\n### Supported Text Formatting\n\n- **Headings:** #, ##, ###, ####\n- **Bold:** **bold text**\n- **Italic:** *italic text*\n- **Underline:** __underlined text__\n- **Strikethrough:** ~~strikethrough~~\n- **Inline code:** `code`\n- **Code blocks:**\n```js\nconsole.log('Hello!')\n```\n- **Blockquotes:** > quoted text\n- **Lists:** - bullet, 1. numbered\n- **Checkboxes:** - [ ] unchecked, - [x] checked\n- **Links:** [text](https://url.com)\n- **Horizontal rule:** ---\n- **Alerts:** :::info, :::warning, :::danger, :::success\n- **Tables:** | Col 1 | Col 2 |\n\nYou can combine formatting, e.g. **bold *italic* text**.\n\n---\n\n### How to use\n\n- Edit the language JSON file to add or change pages.\n- Each page/module has a title, description, and content.\n- Use any formatting above in your content.\n\nExample:\n```json\n{\n  \"my_page\": {\n    \"title\": \"My Page\",\n    \"description\": \"This is a custom page.\",\n    \"content\": \"# My Page\\nSome text here.\"\n  }\n}\n```\n\n---\n\nFor advanced options, see the README.\n"
+                },
+                "3": {
+                    "title": "Installation Guide",
+                    "description": "Complete installation and setup guide for EasyDocs with all dependencies and requirements",
+                    "content": "## 📦 Installation Guide\n\nTo install EasyDocs locally:\n\n1. **Clone the repository**\n```bash\ngit clone https://github.com/MILKv2/easydocs\ncd easydocs\n   ```\n2. **Install dependencies**\n```bash\nnpm install\n```\n3. **Start the development server**\n```bash\nnpm run dev\n```\n\n---\n\nFor production, run:\n```bash\nnpm run build\n```\n\nTo deploy, see the README for Cloudflare Pages instructions.\n"
+                }
+            }
         },
-        "configuration": {
-            "title": "Przewodnik Konfiguracji",
-            "description": "Dowiedz się, jak skonfigurować EasyDocs, dostosować pliki językowe, dodać nowe strony i skonfigurować zaawansowane funkcje dla swojej platformy dokumentacyjnej.",
-            "content": "## ⚙️ Przegląd Konfiguracji\n\nEasyDocs zostało zaprojektowane jako wysoce konfigurowalne poprzez pliki językowe oparte na JSON. To podejście umożliwia łatwe zarządzanie treścią, obsługę wielu języków i dynamiczne generowanie stron.\n\n---\n\n"
-        },
-        "installation": {
-            "title": "Przewodnik Instalacji",
-            "description": "Kompletny przewodnik instalacji i konfiguracji EasyDocs ze wszystkimi zależnościami i wymaganiami",
-            "content": "## 📦 Przewodnik Instalacji\n\nZainstaluj i uruchom EasyDocs w swoim systemie dzięki temu kompletnemu przewodnikowi.\n\n---\n\n"
+        "test": {
+            "title": "test title",
+            "pages": {
+                "5": {
+                    "title": "test name",
+                    "description": "test.",
+                    "content": "test."
+                }
+            }
         }
     }
 }

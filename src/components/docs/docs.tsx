@@ -28,19 +28,16 @@ export default function Page() {
     useEffect(() => {
         const updateCurrentPage = () => {
             const hash = window.location.hash.replace('#', '')
-            if (hash && languageData && languageData.sidebar && languageData.sidebar.sections) {
-                for (const section of Object.values(languageData.sidebar.sections)) {
-                    if (section && typeof section === 'object' && 'items' in section) {
-                        const sectionWithItems = section as { items: { [key: string]: string } }
-                        if (sectionWithItems.items && sectionWithItems.items[hash]) {
-                            setCurrentPage(sectionWithItems.items[hash])
-                            setCurrentContentKey(hash)
-                            return
-                        }
+            if (hash && /^\d+$/.test(hash) && languageData && languageData.content) {
+                for (const sectionObj of Object.values(languageData.content)) {
+                    if (sectionObj.pages && sectionObj.pages[hash]) {
+                        setCurrentPage(sectionObj.pages[hash].title || hash)
+                        setCurrentContentKey(hash)
+                        return
                     }
                 }
             }
-            // If no hash or content found, show welcome page
+            // If hash is empty, show welcome page
             setCurrentPage(languageData?.ui?.breadcrumb?.current || "Welcome")
             setCurrentContentKey(null)
         }

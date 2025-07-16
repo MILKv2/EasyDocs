@@ -84,35 +84,37 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <LanguageSwitcher />
             </SidebarHeader>
             <SidebarContent>
-                {languageData.sidebar && languageData.sidebar.sections && Object.entries(languageData.sidebar.sections).map(([sectionKey, section]) => {
-                    if (section && typeof section === 'object' && 'title' in section && 'items' in section) {
-                        const sectionWithData = section as { title: string; items: { [key: string]: string } }
-                        return (
-                            <SidebarGroup key={sectionKey}>
-                                <SidebarGroupLabel>{sectionWithData.title}</SidebarGroupLabel>
-                                <SidebarGroupContent>
-                                    <SidebarMenu>
-                                        {sectionWithData.items && Object.entries(sectionWithData.items).map(([itemKey, itemTitle]) => (
-                                        <SidebarMenuItem key={itemKey}>
-                                            <SidebarMenuButton asChild>
-                                                <a
-                                                    href={`#${itemKey}`}
-                                                    onClick={() => {
-                                                        if (isMobile) setOpenMobile(false);
-                                                    }}
-                                                >
-                                                    {itemTitle}
-                                                </a>
-                                            </SidebarMenuButton>
-                                        </SidebarMenuItem>
-                                        ))}
-                                    </SidebarMenu>
-                                </SidebarGroupContent>
-                            </SidebarGroup>
-                        )
-                    }
-                    return null
-                })}
+                {languageData.content && Object.entries(languageData.content).map(([sectionKey, sectionObj]) => (
+                    sectionObj.pages && (
+                        <SidebarGroup key={sectionKey}>
+                            <SidebarGroupLabel>{sectionObj.title}</SidebarGroupLabel>
+                            <SidebarGroupContent>
+                                <SidebarMenu>
+                                    {Object.keys(sectionObj.pages)
+                                        .filter((key) => /^\d+$/.test(key))
+                                        .sort((a, b) => Number(a) - Number(b))
+                                        .map((pageNum) => {
+                                            const pageObj = sectionObj.pages[pageNum];
+                                            return (
+                                                <SidebarMenuItem key={pageNum}>
+                                                    <SidebarMenuButton asChild>
+                                                        <a
+                                                            href={`#${pageNum}`}
+                                                            onClick={() => {
+                                                                if (isMobile) setOpenMobile(false);
+                                                            }}
+                                                        >
+                                                            {(pageObj as { title?: string }).title || pageNum}
+                                                        </a>
+                                                    </SidebarMenuButton>
+                                                </SidebarMenuItem>
+                                            );
+                                        })}
+                                </SidebarMenu>
+                            </SidebarGroupContent>
+                        </SidebarGroup>
+                    )
+                ))}
             </SidebarContent>
             <SidebarFooter>
                 <p className="text-xs text-muted-foreground text-center">

@@ -210,26 +210,30 @@ export function ContentRenderer({ contentKey, languageData }: ContentRendererPro
                     </blockquote>
                 )
             } else if (line.startsWith(':::')) {
-                const alertType = line.replace(':::', '').trim()
-                const alertClasses = {
-                    'info': 'border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-950/50 p-4 mb-4 rounded-r',
-                    'warning': 'border-l-4 border-yellow-500 bg-yellow-50 dark:bg-yellow-950/50 p-4 mb-4 rounded-r',
-                    'danger': 'border-l-4 border-red-500 bg-red-50 dark:bg-red-950/50 p-4 mb-4 rounded-r',
-                    'success': 'border-l-4 border-green-500 bg-green-50 dark:bg-green-950/50 p-4 mb-4 rounded-r'
-                }
-                const textClasses = {
-                    'info': 'text-blue-900 dark:text-blue-100',
-                    'warning': 'text-yellow-900 dark:text-yellow-100',
-                    'danger': 'text-red-900 dark:text-red-100',
-                    'success': 'text-green-900 dark:text-green-100'
-                }
-                elements.push(
-                    <div key={index} className={alertClasses[alertType as keyof typeof alertClasses] || alertClasses.info}>
-                        <div className={cn("font-medium capitalize mb-1", textClasses[alertType as keyof typeof textClasses] || textClasses.info)}>
-                            {alertType}
+                const alertMatch = line.match(/^:::(info|warning|danger|success)\s*(.*)$/)
+                if (alertMatch) {
+                    const alertType = alertMatch[1]
+                    const alertMessage = alertMatch[2] || alertType
+                    const alertClasses = {
+                        'info': 'border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-950/50 p-4 mb-4 rounded-r',
+                        'warning': 'border-l-4 border-yellow-500 bg-yellow-50 dark:bg-yellow-950/50 p-4 mb-4 rounded-r',
+                        'danger': 'border-l-4 border-red-500 bg-red-50 dark:bg-red-950/50 p-4 mb-4 rounded-r',
+                        'success': 'border-l-4 border-green-500 bg-green-50 dark:bg-green-950/50 p-4 mb-4 rounded-r'
+                    }
+                    const textClasses = {
+                        'info': 'text-blue-900 dark:text-blue-100',
+                        'warning': 'text-yellow-900 dark:text-yellow-100',
+                        'danger': 'text-red-900 dark:text-red-100',
+                        'success': 'text-green-900 dark:text-green-100'
+                    }
+                    elements.push(
+                        <div key={index} className={alertClasses[alertType as keyof typeof alertClasses] || alertClasses.info}>
+                            <div className={cn("font-medium capitalize mb-1", textClasses[alertType as keyof typeof textClasses] || textClasses.info)}>
+                                <span dangerouslySetInnerHTML={{ __html: formatText(alertMessage) }} />
+                            </div>
                         </div>
-                    </div>
-                )
+                    )
+                }
             } else if (line.trim() === '---') {
                 elements.push(
                     <hr key={index} className="my-6 border-muted-foreground/25" />

@@ -7,7 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { useTheme } from "@/hooks/theme-provider"
+import { useTheme } from "@/components/theme-provider"
 import { useLanguage } from "@/hooks/useLanguage"
 import { Skeleton } from "@/components/ui/skeleton"
 

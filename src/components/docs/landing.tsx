@@ -78,8 +78,14 @@ export function Landing() {
             result = result.replace(/\*([^*]+)\*/g, '<em class="italic">$1</em>')
             result = result.replace(/`([^`]+)`/g, '<code class="bg-muted px-1.5 py-0.5 rounded text-sm font-mono">$1</code>')
 
+            const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/g
+            result = result.replace(imageRegex, (_, alt, src) => {
+                const imageSrc = src.startsWith('https') ? src : `/${src.replace(/^\/+/, '')}`
+                return `<img src="${imageSrc}" alt="${alt}" draggable="false" class="max-w-full h-auto rounded-lg shadow-sm my-4 mx-auto block" loading="lazy" />`
+            })
+
             const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g
-            result = result.replace(linkRegex, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary/80 underline underline-offset-4 decoration-2 hover:decoration-primary/80 transition-colors duration-200 font-medium">$1</a>')
+            result = result.replace(linkRegex, '<a href="$2" rel="noopener noreferrer" class="text-primary hover:text-primary/80 underline underline-offset-4 decoration-2 hover:decoration-primary/80 transition-colors duration-200 font-medium">$1</a>')
 
             return result
         }

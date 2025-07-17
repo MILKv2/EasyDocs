@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from 'react'
 const AVAILABLE_LANGUAGES = [
     { code: 'en', name: 'English', flag: '🇺🇸' },
     { code: 'pl', name: 'Polish', flag: '🇵🇱' },
+    // Add more languages here
 ].map(lang => ({
     ...lang,
     code: lang.code.toLowerCase(),

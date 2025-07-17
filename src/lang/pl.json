@@ -1,95 +1,81 @@
 {
     "_comments": {
-        "formatting_guide": "Supported text formatting options:",
+        "formatting_guide": "Obsługiwane opcje formatowania tekstu:",
         "headings": "# H1, ## H2, ### H3, #### H4",
-        "bold": "**bold text**",
-        "italic": "*italic text*",
-        "underline": "__underlined text__",
-        "strikethrough": "~~strikethrough text~~",
-        "inline_code": "`inline code`",
-        "code_blocks": "```language\\ncode here\\n```",
-        "blockquotes": "> quoted text",
-        "lists": "- bullet point, 1. numbered list",
-        "checkboxes": "- [ ] unchecked, - [x] checked",
-        "links": "[link text](https://url.com)",
+        "bold": "**pogrubiony tekst**",
+        "italic": "*kursywa*",
+        "underline": "__podkreślony tekst__",
+        "strikethrough": "~~przekreślony tekst~~",
+        "inline_code": "`kod w linii`",
+        "code_blocks": "```język\\nkod tutaj\\n```",
+        "blockquotes": "> cytowany tekst",
+        "lists": "- punkt, 1. lista numerowana",
+        "checkboxes": "- [ ] niezaznaczone, - [x] zaznaczone",
+        "links": "[tekst linku](https://url.com)",
+        "images": "![tekst alternatywny](url_obrazu_lub_ścieżka)",
         "horizontal_rule": "---",
         "alerts": ":::info, :::warning, :::danger, :::success",
-        "tables": "| Column 1 | Column 2 |",
-        "combining": "You can combine formatting: **bold *italic* text**"
+        "tables": "| Kolumna 1 | Kolumna 2 |",
+        "combining": "Można łączyć formatowanie: **pogrubiony *kursywa* tekst**"
     },
     "ui": {
         "language": {
-            "label": "Language"
+            "label": "Język"
         },
         "theme": {
-            "label": "Theme",
-            "light": "Light",
-            "dark": "Dark",
-            "system": "System"
+            "label": "Motyw",
+            "light": "Jasny",
+            "dark": "Ciemny",
+            "system": "Systemowy"
         },
         "breadcrumb": {
-            "home": "Documentation",
-            "current": "Welcome"
+            "home": "Dokumentacja",
+            "current": "Witamy"
         },
-        "loading": "Loading...",
-        "error": "Error loading content",
+        "loading": "Ładowanie...",
+        "error": "Błąd podczas ładowania treści",
         "welcome": {
-            "title": "Welcome to EasyDocs",
-            "subtitle": "A modern, fast, and beautiful documentation platform built with React, TypeScript, and shadcn/ui. Page is under development right now."
+            "title": "Witamy w EasyDocs",
+            "subtitle": "Nowoczesna, szybka i piękna platforma dokumentacji zbudowana z React, TypeScript i shadcn/ui. Strona jest obecnie w trakcie rozwoju."
         },
         "navbar": {
-            "home": "Home",
+            "home": "Strona główna",
             "github": "Github",
-            "components": "Components",
-            "title": "Navigation",
-            "description": "Quick links",
-            "close": "Close"
+            "components": "Komponenty",
+            "title": "Nawigacja",
+            "description": "Szybkie linki",
+            "close": "Zamknij"
         }
     },
     "sidebar": {
-        "title": "Documentation",
-        "sections": {
-            "getting_started": {
-                "title": "Getting Started",
-                "items": {
-                    "installation": "Installation",
-                    "quick_start": "Quick Start",
-                    "configuration": "Configuration"
-                }
-            }
-        }
+        "title": "Dokumentacja"
     },
     "content": {
         "welcome": {
-            "title": "Welcome to EasyDocs",
-            "description": "A modern, fast, and beautiful documentation platform built with React 19, TypeScript, Vite, and shadcn/ui components. Create stunning documentation with advanced formatting, copy buttons, mobile-first design, and deploy globally with Cloudflare Pages.",
-            "content": "# Welcome to EasyDocs\n\nEasyDocs helps you create beautiful, interactive documentation using simple markdown-like formatting.\n\n---\n\n## What can you do?\n\n- Format text with headings, bold, italic, underline, and strikethrough\n- Add code blocks, inline code, and blockquotes\n- Create lists, checkboxes, links, and tables\n- Show alerts for info, warning, danger, and success\n- Use modules to organize your docs into pages and sections\n\n## Formatting Examples\n\n**Headings:**\n# H1\n## H2\n### H3\n#### H4\n\n**Text:**\n**bold**\n*italic*\n__underline__\n~~strikethrough~~\n\n**Code:**\n`inline code`\n```js\nconsole.log('code block')\n```\n\n**Blockquote:**\n> This is a quote\n\n**Lists:**\n- Bullet item\n1. Numbered item\n\n**Checkboxes:**\n- [ ] To do\n- [x] Done\n\n**Links:**\n[Visit EasyDocs GitHub](https://github.com/MILKv2/easydocs)\n\n**Horizontal rule:**\n---\n\n**Alerts:**\n:::info This is an info alert\n:::warning This is a warning alert\n:::danger This is a danger alert\n:::success This is a success alert\n\n**Tables:**\n| Name     | Value   |\n|---------|--------|\n| Example | 123    |\n\nYou can combine formatting: **bold *italic* text**\n\n---\n\n## How to use modules\n\n- Each page or section is a module defined in your language JSON file.\n- Add new modules by creating new keys under `content` (e.g. \"my_page\": {...})\n- Each module can have a title, description, and content.\n- Use formatting and elements above in any module's content.\n\nExample:\n```json\n{\n  \"my_page\": {\n    \"title\": \"My Page\",\n    \"description\": \"This is a custom page.\",\n    \"content\": \"# My Page\\nSome text here.\"\n  }\n}\n```\n\n---\n\nFor more details, see the README or explore the sidebar!\n"
+            "title": "Witamy w EasyDocs",
+            "description": "Nowoczesna, szybka i piękna platforma dokumentacji zbudowana z React 19, TypeScript, Vite i komponentami shadcn/ui. Twórz oszałamiającą dokumentację z zaawansowanym formatowaniem, przyciskami kopiowania, designem mobile-first i wdrażaj globalnie z Cloudflare Pages.",
+            "content": "# 🚀 Witamy w EasyDocs\n\nEasyDocs pomaga tworzyć piękną, interaktywną dokumentację używając prostego formatowania podobnego do markdown. Buduj profesjonalne strony dokumentacji bez konieczności kodowania.\n\n---\n\n## ✨ Co możesz robić?\n\n- 📝 **Formatuj tekst** z nagłówkami, pogrubieniem, kursywą, podkreśleniem i przekreśleniem\n- 💻 **Dodawaj bloki kodu** z podświetlaniem składni i przyciskami kopiowania\n- 📋 **Twórz listy**, pola wyboru, linki i responsywne tabele\n- 🎨 **Pokazuj piękne alerty** dla stanów informacji, ostrzeżenia, niebezpieczeństwa i sukcesu\n- 📚 **Używaj modułów** do organizacji dokumentów w strony i sekcje\n- 🌍 **Wdrażaj globalnie** z integracją Cloudflare Pages\n\n---\n\n## 🎯 Przykłady formatowania\n\n### **Stylizacja tekstu:**\n**Pogrubiony tekst** | *Tekst kursywą* | __Podkreślony tekst__ | ~~Przekreślony tekst~~\n\n### **Przykłady kodu:**\n`kod w linii` z podświetlaniem składni\n\n```javascript\n// Blok kodu JavaScript z podświetlaniem składni\nconst welcome = () => {\n  console.log('Witamy w EasyDocs! 🎉');\n  return 'Piękna dokumentacja łatwo stworzona';\n};\n```\n\n```bash\n# Polecenia terminala\nnpm install easydocs\nnpm run dev\n```\n\n### **Elementy interaktywne:**\n\n**Cytaty:**\n> 💡 **Porada:** EasyDocs automatycznie generuje responsywną nawigację boczną z struktury treści.\n\n**Listy zadań:**\n- [x] ✅ Skonfiguruj projekt EasyDocs\n- [x] ✅ Skonfiguruj pliki językowe\n- [ ] 📝 Dodaj własną treść\n- [ ] 🚀 Wdróż na produkcję\n\n**Linki i nawigacja:**\n[📖 Zobacz dokumentację](/) | [💻 Repozytorium GitHub](https://github.com/MILKv2/easydocs) | [🚀 Demo na żywo](/)\n\n---\n\n### **Komponenty alertów:**\n\n:::info 📘 **Informacja**\nTo jest alert informacyjny. Idealny do porad, notatek i pomocnych informacji.\n:::\n\n:::warning ⚠️ **Ostrzeżenie**\nTo jest alert ostrzegawczy. Użyj go do podkreślenia ważnych uwag lub potencjalnych problemów.\n:::\n\n:::danger 🚨 **Niebezpieczeństwo**\nTo jest alert niebezpieczeństwa. Użyj go do krytycznych informacji, na które użytkownicy muszą zwrócić uwagę.\n:::\n\n:::success ✅ **Sukces**\nTo jest alert sukcesu. Świetny do potwierdzeń, ukończonych zadań i pozytywnych opinii.\n:::\n\n---\n\n### **Tabele danych:**\n\n| Funkcja | Opis | Status |\n|---------|-------------|--------|\n| 🎨 **Motywy** | Obsługa trybu jasnego/ciemnego | ✅ Dostępne |\n| 📱 **Responsywność** | Design mobile-first | ✅ Dostępne |\n| 🔍 **Wyszukiwanie** | Możliwość wyszukiwania pełnotekstowego | 🚧 Wkrótce™️ |\n| 🌐 **Języki** | Obsługa wielu języków | ✅ Dostępne |\n| 📊 **Obrazy** | Pełna obsługa obrazów z responsywnym designem | ⚠️ BETA |\n\n---\n\n## 🛠️ Jak tworzyć treść\n\n### **Krok 1: Zrozumienie modułów**\nKażda strona lub sekcja to **moduł** zdefiniowany w pliku JSON języka. Struktura jest prosta i intuicyjna:\n\n```json\n{\n  \"test1\": {\n    \"title\": \"tytuł testowy\",\n    \"pages\": {\n      \"5\": {\n        \"title\": \"nazwa testowa\",\n        \"description\": \"test.\",\n        \"content\": \"test.\"\n      }\n    }\n  }\n}\n```\n\n### **Krok 2: Dodawanie nowych stron**\n1. 📝 Otwórz plik języka JSON (np. `en.json` lub `pl.json`)\n2. ➕ Dodaj nowe moduły w sekcji `content`\n3. 🎨 Użyj dowolnych elementów formatowania pokazanych powyżej\n4. 💾 Zapisz i twoje zmiany pojawią się natychmiast!\n\n### **Krok 3: Organizacja treści**\n- Użyj **zagnieżdżonych struktur** dla złożonej dokumentacji\n- Twórz **hierarchie stron** z ponumerowanymi sekcjami\n- Dodawaj **opisy** aby pomóc użytkownikom w nawigacji\n- Uwzględniaj **bogate formatowanie** aby treść była angażująca\n\n---\n\n## 🚀 Szybki start\n\n**Gotowy do zanurzenia się?** Oto co możesz zrobić dalej:\n\n1. 🔍 **Przeglądaj pasek boczny** → Przeglądaj istniejące sekcje dokumentacji\n2. 📝 **Edytuj treść** → Modyfikuj pliki JSON aby dodać własną treść\n3. 🎨 **Dostosuj stylizację** → Użyj przełącznika motywu aby przełączać między trybami jasnym/ciemnym\n4. 🌐 **Dodaj języki** → Twórz dodatkowe pliki językowe dla internacjonalizacji\n5. 🚀 **Wdróż** → Wypchnij do GitHub i wdróż z Cloudflare Pages\n\n---\n\n**Potrzebujesz pomocy?** Sprawdź [📖 Przewodnik konfiguracji](/#1) lub [🛠️ Przewodnik instalacji](/#2) aby zacząć!\n\n*Miłego dokumentowania! 🎉*"
         },
         "getting_started": {
-            "title": "Getting Started",
+            "title": "Pierwsze kroki",
             "pages": {
                 "1": {
-                    "title": "Quick Start",
-                    "description": "Get up and running with EasyDocs in minutes. Learn how to install, configure, and start creating beautiful documentation with advanced formatting.",
-                    "content": ""
+                    "title": "Konfiguracja",
+                    "description": "Naucz się jak skonfigurować EasyDocs, dostosować pliki językowe, dodawać nowe strony i ustawiać zaawansowane funkcje dla swojej platformy dokumentacji.",
+                    "content": "# ⚙️ Przewodnik konfiguracji\n\nNaucz się jak dodawać treść i dostosowywać dokumentację używając prostych opcji formatowania.\n\n---\n\n## 💻 Dodawanie treści\n\n### **Jak tworzyć nowe strony:**\n\n1. **Otwórz plik języka** (np. `src/lang/en.json`)\n- Aby utworzyć nowy język, przejdź do `/src/hooks/useLanguage.ts` i wykonaj następujące czynności:\n```Typescript\nconst AVAILABLE_LANGUAGES = [\n    { code: 'en', name: 'English', flag: '🇺🇸' },\n    { code: 'pl', name: 'Polish', flag: '🇵🇱' },\n    // Dodaj więcej języków tutaj\n].map(lang => ({\n    ...lang,\n    code: lang.code.toLowerCase(),\n    name: lang.name,\n    flag: lang.flag\n}))\n```\n2. **Znajdź sekcję `content`**\n3. **Dodaj nową stronę:**\n\n```json\n\"content\": {\n  \"moja_nowa_strona\": {\n    \"title\": \"Moja nowa strona\",\n    \"description\": \"Krótki opis tego, co obejmuje ta strona\",\n    \"content\": \"# Witamy\\n\\nTwoja treść znajduje się tutaj...\"\n  }\n}\n```\n\n### **Dodawanie wielu stron:**\n\nDla sekcji z wieloma stronami:\n\n```json\n\"moja_sekcja\": {\n  \"title\": \"Tytuł mojej sekcji\",\n  \"pages\": {\n    \"1\": {\n      \"title\": \"Wprowadzenie\",\n      \"description\": \"Rozpoczęcie pracy z...\",\n      \"content\": \"# Wprowadzenie\\n\\nTreść tutaj...\"\n    },\n    \"2\": {\n      \"title\": \"Tematy zaawansowane\",\n      \"description\": \"Głębokie zanurzenie w...\",\n      \"content\": \"# Zaawansowane\\n\\nWięcej treści...\"\n    }\n  }\n}\n```\n\n---\n\n## 📝 Kompletna dokumentacja formatowania\n\n### **🔤 Formatowanie tekstu**\n\n| Wpisz to | Otrzymasz | Użyj do |\n|---------|---------|----------|\n| `# Nagłówek 1` | # Duży tytuł | Główne tytuły stron |\n| `## Nagłówek 2` | ## Tytuł sekcji | Główne sekcje |\n| `### Nagłówek 3` | ### Podsekcja | Podsekcje |\n| `#### Nagłówek 4` | #### Mniejszy nagłówek | Szczegóły |\n| `**pogrubiony tekst**` | **pogrubiony tekst** | Nacisk |\n| `*tekst kursywą*` | *tekst kursywą* | Lekki nacisk |\n| `__podkreślony tekst__` | __podkreślony tekst__ | Specjalne terminy |\n| `~~przekreślone~~` | ~~przekreślone~~ | Przestarzała treść |\n\n### **💻 Przykłady kodu**\n\n**Kod w linii:**\n- Wpisz:  `twój kod tutaj` \n- Użyj do: Poleceń, zmiennych, krótkich fragmentów\n\n**Bloki kodu:**\n```javascript\nconst przykład = {\n  nazwa: \"Mój projekt\",\n  wersja: \"1.0.0\"\n};\n```\n\n### **📋 Listy i organizacja**\n\n**Listy punktowane:**\n```\n- Pierwszy element\n- Drugi element\n- Trzeci element\n```\n\n**Listy numerowane:**\n```\n1. Krok pierwszy\n2. Krok drugi\n3. Krok trzeci\n```\n\n**Listy zadań:**\n```\n- [x] Ukończone zadanie ✅\n- [ ] Oczekujące zadanie ⏳\n- [ ] Przyszłe zadanie 📅\n```\n\n### **🎨 Elementy wizualne**\n\n**Cytaty:**\n```\n> 💡 **Porada:** To są ważne informacje\n> które wyróżniają się z normalnego tekstu.\n```\n\n**Linie poziome:**\n```\n---\n```\n\n**Linki:**\n```\n[Tekst linku](https://example.com)\n[Link wewnętrzny](/#sekcja)\n```\n\n**Obrazy:**\n```\n![Tekst alternatywny](ścieżka_obrazu_lub_url)\n![Demo GIF](https://example.com/demo.gif)\n![Lokalny obraz](/public/images/screenshot.png)\n```\n\n![Obraz linkowany](https://media.discordapp.net/attachments/1302067272881279017/1389488196546592778/watermark.gif?ex=687a8df9&is=68793c79&hm=66e57ed7aa0c86df8b6098f30a46002b8aca9721bb2691af1577aef9f0717538&=)\n\n![Obraz lokalny](/public/images/togif.gif)\n\n### **🚨 Pola alertów**\n\n```\n:::info 📘 **Informacja**\nTo jest alert informacyjny dla porad i notatek.\n:::\n\n:::warning ⚠️ **Ostrzeżenie**\nTo jest alert ostrzegawczy dla ważnych uwag.\n:::\n\n:::danger 🚨 **Niebezpieczeństwo**\nTo jest alert niebezpieczeństwa dla krytycznych informacji.\n:::\n\n:::success ✅ **Sukces**\nTo jest alert sukcesu dla potwierdzeń.\n:::\n```\n\n### **📊 Tabele**\n\n```\n| Funkcja | Status | Opis |\n|---------|--------|--------------|\n| Funkcja 1 | ✅ Gotowe | W pełni działające |\n| Funkcja 2 | 🚧 W trakcie | W przygotowaniu |\n| Funkcja 3 | 📅 Planowane | Wkrótce |\n```\n"
                 },
                 "2": {
-                    "title": "Configuration",
-                    "description": "Learn how to configure EasyDocs, customize language files, add new pages, and set up advanced features for your documentation platform.",
-                    "content": "## ⚙️ Configuration Guide\n\nEasyDocs uses JSON files for configuration and content. You can customize pages, sections, and formatting easily.\n\n---\n\n### Supported Text Formatting\n\n- **Headings:** #, ##, ###, ####\n- **Bold:** **bold text**\n- **Italic:** *italic text*\n- **Underline:** __underlined text__\n- **Strikethrough:** ~~strikethrough~~\n- **Inline code:** `code`\n- **Code blocks:**\n```js\nconsole.log('Hello!')\n```\n- **Blockquotes:** > quoted text\n- **Lists:** - bullet, 1. numbered\n- **Checkboxes:** - [ ] unchecked, - [x] checked\n- **Links:** [text](https://url.com)\n- **Horizontal rule:** ---\n- **Alerts:** :::info, :::warning, :::danger, :::success\n- **Tables:** | Col 1 | Col 2 |\n\nYou can combine formatting, e.g. **bold *italic* text**.\n\n---\n\n### How to use\n\n- Edit the language JSON file to add or change pages.\n- Each page/module has a title, description, and content.\n- Use any formatting above in your content.\n\nExample:\n```json\n{\n  \"my_page\": {\n    \"title\": \"My Page\",\n    \"description\": \"This is a custom page.\",\n    \"content\": \"# My Page\\nSome text here.\"\n  }\n}\n```\n\n---\n\nFor advanced options, see the README.\n"
-                },
-                "3": {
-                    "title": "Installation Guide",
-                    "description": "Complete installation and setup guide for EasyDocs with all dependencies and requirements",
-                    "content": "## 📦 Installation Guide\n\nTo install EasyDocs locally:\n\n1. **Clone the repository**\n```bash\ngit clone https://github.com/MILKv2/easydocs\ncd easydocs\n   ```\n2. **Install dependencies**\n```bash\nnpm install\n```\n3. **Start the development server**\n```bash\nnpm run dev\n```\n\n---\n\nFor production, run:\n```bash\nnpm run build\n```\n\nTo deploy, see the README for Cloudflare Pages instructions.\n"
+                    "title": "Przewodnik instalacji",
+                    "description": "Jak sklonować repozytorium i wdrożyć na platformach hostingowych",
+                    "content": "# 🚀 Przewodnik instalacji\n\n## 📥 Sklonuj repozytorium\n\n```bash\ngit clone https://github.com/MILKv2/easydocs.git\ncd easydocs\nnpm install\nnpm run build\n```\n\n## 🌐 Wdróż na strony\n\n### **Cloudflare Pages:**\n1. Zainstaluj wrangler (jeśli nie jest zainstalowany)\n```bash\nnpm install -g wrangler\n```\n2. Zaloguj się do Cloudflare\n```bash\nwrangler login\n```\n3. Opublikuj swoją stronę\n```bash\nnpm run deploy\n```"
                 }
             }
         },
-        "test": {
-            "title": "test title",
+        "test12": {
+            "title": "tytuł testowy",
             "pages": {
-                "5": {
-                    "title": "test name",
+                "3": {
+                    "title": "nazwa testowa",
                     "description": "test.",
                     "content": "test."
                 }

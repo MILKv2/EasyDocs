@@ -1,5 +1,3 @@
-# THIS PROJECT IS UNDER DEVELOPMENT
-
 # EasyDocs
 
 A modern documentation platform built with React, TypeScript, Vite and Shadcn deployed on Cloudflare Pages.

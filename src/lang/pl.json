@@ -33,22 +33,7 @@
             "current": "Witamy"
         },
         "loading": "Ładowanie...",
-        "error": "Błąd podczas ładowania treści",
-        "welcome": {
-            "title": "Witamy w EasyDocs",
-            "subtitle": "Nowoczesna, szybka i piękna platforma dokumentacji zbudowana z React, TypeScript i shadcn/ui. Strona jest obecnie w trakcie rozwoju."
-        },
-        "navbar": {
-            "home": "Strona główna",
-            "github": "Github",
-            "components": "Komponenty",
-            "title": "Nawigacja",
-            "description": "Szybkie linki",
-            "close": "Zamknij"
-        }
-    },
-    "sidebar": {
-        "title": "Dokumentacja"
+        "error": "Błąd podczas ładowania treści"
     },
     "content": {
         "welcome": {

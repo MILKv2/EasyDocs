@@ -124,7 +124,7 @@ export function ContentRenderer({ contentKey, languageData }: ContentRendererPro
             const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/g
             result = result.replace(imageRegex, (_, alt, src) => {
                 const imageSrc = src.startsWith('https') ? src : `/${src.replace(/^\/+/, '')}`
-                return `<img src="${imageSrc}" alt="${alt}" draggable="false" class="max-w-full h-auto rounded-lg shadow-sm my-4 mx-auto block" loading="lazy" />`
+                return `<img src="${imageSrc}" alt="${alt}" draggable="false" class="max-w-2xl w-full h-auto rounded-lg shadow-sm my-4 mx-auto block" loading="lazy" />`
             })
             
             const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g

@@ -76,7 +76,10 @@ export function Landing() {
             result = result.replace(/__(.*?)__/g, '<u class="underline">$1</u>')
             result = result.replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold">$1</strong>')
             result = result.replace(/\*([^*]+)\*/g, '<em class="italic">$1</em>')
-            result = result.replace(/`([^`]+)`/g, '<code class="bg-muted px-1.5 py-0.5 rounded text-sm font-mono">$1</code>')
+            result = result.replace(/`([^`]+)`/g, (_, code) => {
+                const escapedCode = code.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                return `<code class="bg-muted px-1.5 py-0.5 rounded text-sm font-mono">${escapedCode}</code>`
+            })
 
             const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/g
             result = result.replace(imageRegex, (_, alt, src) => {
@@ -203,7 +206,7 @@ export function Landing() {
                     }
                     elements.push(
                         <div key={index} className={alertClasses[alertType as keyof typeof alertClasses] || alertClasses.info}>
-                            <div className={`font-medium capitalize mb-1 ${textClasses[alertType as keyof typeof textClasses] || textClasses.info}`}>
+                            <div className={`font-medium mb-1 ${textClasses[alertType as keyof typeof textClasses] || textClasses.info}`}>
                                 <span dangerouslySetInnerHTML={{ __html: formatText(alertMessage) }} />
                             </div>
                         </div>

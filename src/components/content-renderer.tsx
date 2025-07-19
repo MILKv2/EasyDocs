@@ -9,12 +9,13 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
-import { Copy, Check } from 'lucide-react'
+import { Copy, Check, ChevronLeft, ChevronRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface ContentRendererProps {
     contentKey: string
     languageData: any
+    onNavigate?: (key: string) => void
 }
 
 interface CodeBlockProps {
@@ -70,21 +71,50 @@ function CodeBlock({ code, language }: CodeBlockProps) {
 
 export function ContentRenderer({ contentKey, languageData }: ContentRendererProps) {
     let content = null;
-        if (languageData?.content) {
-            for (const headingKey of Object.keys(languageData.content)) {
-                const heading = languageData.content[headingKey];
-                if (heading && typeof heading === 'object' && 'pages' in heading) {
+    let allPages: Array<{ key: string, title: string }> = [];
+    let currentPageIndex = -1;
+    if (languageData?.content) {
+        for (const headingKey of Object.keys(languageData.content)) {
+            const heading = languageData.content[headingKey];
+            if (heading && typeof heading === 'object') {
+                if ('pages' in heading) {
                     const pages = heading.pages as Record<string, any>;
-                    if (pages && contentKey in pages) {
-                        content = pages[contentKey];
-                        break;
+                    if (pages) {
+                        const sortedPageKeys = Object.keys(pages).sort((a, b) => {
+                            const numA = parseInt(a);
+                            const numB = parseInt(b);
+                            return numA - numB;
+                        });
+
+                        for (const pageKey of sortedPageKeys) {
+                            allPages.push({
+                                key: pageKey,
+                                title: pages[pageKey]?.title || pageKey
+                            });
+
+                            if (pageKey === contentKey) {
+                                content = pages[pageKey];
+                                currentPageIndex = allPages.length - 1;
+                            }
+                        }
+                    }
+                } else if ('title' in heading && 'content' in heading) {
+                    allPages.push({
+                        key: headingKey,
+                        title: heading.title
+                    });
+
+                    if (headingKey === contentKey) {
+                        content = heading;
+                        currentPageIndex = allPages.length - 1;
                     }
                 }
             }
+        }
     }
 
     useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' })
+        window.scrollTo({ top: 0, behavior: 'instant' })
     }, [contentKey])
 
     if (!content) {
@@ -123,13 +153,13 @@ export function ContentRenderer({ contentKey, languageData }: ContentRendererPro
                 const escapedCode = code.replace(/</g, '&lt;').replace(/>/g, '&gt;')
                 return `<code class="bg-muted px-1.5 py-0.5 rounded text-sm font-mono break-words max-w-full inline-block">${escapedCode}</code>`
             })
-            
+
             const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/g
             result = result.replace(imageRegex, (_, alt, src) => {
                 const imageSrc = src.startsWith('https') ? src : `/${src.replace(/^\/+/, '')}`
                 return `<img src="${imageSrc}" alt="${alt}" draggable="false" class="max-w-2xl w-full h-auto rounded-lg shadow-sm my-4 mx-auto block" loading="lazy" />`
             })
-            
+
             const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g
             result = result.replace(linkRegex, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary/80 underline underline-offset-4 decoration-2 hover:decoration-primary/80 transition-colors duration-200 font-medium break-words">$1</a>')
 
@@ -140,9 +170,9 @@ export function ContentRenderer({ contentKey, languageData }: ContentRendererPro
             if (line.startsWith('```')) {
                 if (inCodeBlock) {
                     elements.push(
-                        <CodeBlock 
-                            key={`code-${index}`} 
-                            code={currentCodeBlock.join('\n')} 
+                        <CodeBlock
+                            key={`code-${index}`}
+                            code={currentCodeBlock.join('\n')}
                             language={codeLanguage}
                         />
                     )
@@ -270,13 +300,13 @@ export function ContentRenderer({ contentKey, languageData }: ContentRendererPro
                 const text = line.replace(/- \[[x ]\] /, '')
                 elements.push(
                     <div key={index} className="ml-4 mb-2 flex items-start">
-                        <input 
-                            type="checkbox" 
-                            checked={isChecked} 
-                            readOnly 
+                        <input
+                            type="checkbox"
+                            checked={isChecked}
+                            readOnly
                             className="mr-2 mt-1 flex-shrink-0"
                         />
-                        <span 
+                        <span
                             className={isChecked ? 'line-through text-muted-foreground' : ''}
                             dangerouslySetInnerHTML={{ __html: formatText(text) }}
                         />
@@ -332,6 +362,23 @@ export function ContentRenderer({ contentKey, languageData }: ContentRendererPro
         return elements
     }
 
+    const previousPage = currentPageIndex > 0 ? allPages[currentPageIndex - 1] : null;
+    const nextPage = currentPageIndex < allPages.length - 1 ? allPages[currentPageIndex + 1] : null;
+
+    const handlePreviousClick = () => {
+        if (previousPage) {
+            window.location.hash = previousPage.key === 'welcome' ? '' : `#${previousPage.key}`;
+        } else {
+            window.location.hash = '';
+        }
+    };
+
+    const handleNextClick = () => {
+        if (nextPage) {
+            window.location.hash = nextPage.key === 'welcome' ? '' : `#${nextPage.key}`;
+        }
+    };
+
     return (
         <div className="flex flex-col space-y-6 w-full max-w-full overflow-hidden">
             <div className="flex flex-col space-y-3">
@@ -342,9 +389,34 @@ export function ContentRenderer({ contentKey, languageData }: ContentRendererPro
                     {content.description}
                 </div>
             </div>
-            
+
             <div className="prose prose-gray dark:prose-invert max-w-none w-full overflow-hidden">
                 {renderContent(content.content)}
+            </div>
+
+            <div className="flex justify-between items-center pt-8 border-t border-muted-foreground/20 mt-8">
+                <Button
+                    variant="outline"
+                    onClick={handlePreviousClick}
+                    className="flex items-center gap-2 cursor-pointer hover:cursor-pointer"
+                >
+                    <ChevronLeft className="h-4 w-4" />
+                    <span className="hidden sm:inline">
+                        {previousPage ? previousPage.title : 'Back'}
+                    </span>
+                </Button>
+
+                <Button
+                    variant="outline"
+                    onClick={handleNextClick}
+                    disabled={!nextPage}
+                    className="flex items-center gap-2 cursor-pointer hover:cursor-pointer disabled:cursor-not-allowed"
+                >
+                    <span className="hidden sm:inline">
+                        {nextPage ? nextPage.title : 'Next'}
+                    </span>
+                    <ChevronRight className="h-4 w-4" />
+                </Button>
             </div>
         </div>
     )

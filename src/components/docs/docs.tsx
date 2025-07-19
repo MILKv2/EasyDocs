@@ -52,7 +52,13 @@ export default function Page() {
 
     const renderMainContent = () => {
         if (currentContentKey) {
-            return <ContentRenderer contentKey={currentContentKey} languageData={languageData} />
+            return <ContentRenderer 
+                contentKey={currentContentKey} 
+                languageData={languageData} 
+                onNavigate={(key) => {
+                    window.location.hash = key === 'welcome' ? '' : `#${key}`;
+                }}
+            />
         } else {
             return <Landing />
         }
